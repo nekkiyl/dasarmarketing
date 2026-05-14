@@ -113,6 +113,31 @@
         .hero-gradient {
             background: radial-gradient(circle at 50% -20%, #f3f3f4 0%, #ffffff 100%);
         }
+        /* ADDED: Passive Perspective Grid Styling */
+        .ar-perspective-container {
+            position: relative;
+            overflow: hidden;
+            perspective: 1000px;
+        }
+        .ar-grid-bg {
+            position: absolute;
+            bottom: -30%;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: 
+                repeating-linear-gradient(rgba(0,0,0,0.015) 0px, rgba(0,0,0,0.015) 1px, transparent 1px, transparent 40px),
+                repeating-linear-gradient(90deg, rgba(0,0,0,0.015) 0px, rgba(0,0,0,0.015) 1px, transparent 1px, transparent 40px);
+            transform: rotateX(72deg);
+            transform-origin: center bottom;
+            opacity: 0.7;
+            z-index: 1;
+            pointer-events: none;
+        }
+        .hero-content {
+            position: relative;
+            z-index: 10;
+        }
     </style>
 </head>
 <body class="bg-surface-container-lowest">
@@ -128,8 +153,9 @@
 </div>
 </nav>
 <main>
-<section class="hero-gradient pt-32 pb-16 px-gutter text-center">
-<div class="max-w-4xl mx-auto">
+<section class="hero-gradient pt-32 pb-16 px-gutter text-center ar-perspective-container">
+<div class="ar-grid-bg"></div>
+<div class="max-w-4xl mx-auto hero-content">
 <span class="inline-block mb-2 font-label-md text-label-md text-secondary tracking-widest uppercase">WHITE LABEL AR FOR MARKETING AGENCIES</span>
 <h1 class="font-display-xl text-display-xl mb-4 leading-tight tracking-tight text-primary">
                 Build in Minutes<br>Bill as Premium
@@ -143,6 +169,7 @@
     <button class="px-10 py-4 bg-[#0071E3] text-white font-body-md text-body-md rounded-full transition-all hover:shadow-lg">Let's Collaborate</button>
   </a>
 </div>
+</div>
 </section>
 <section class="py-16 px-gutter bg-white">
   <div class="max-w-container-max mx-auto">
@@ -153,8 +180,8 @@
           <h3 class="font-headline-lg text-headline-lg mb-2">No-Code Setup</h3>
         </div>  
         <div class="absolute bottom-0 left-0 right-0 h-[55%] md:h-[65%] flex translate-y-8 translate-x-8 transition-transform group-hover:translate-y-4">
-          <img alt="Dashboard interface" 
-               class="w-[120%] max-w-none h-full object-left object-cover rounded-tl-xl shadow-2xl" 
+          <img alt="Dashboard interface"  
+               class="w-[120%] max-w-none h-full object-left object-cover rounded-tl-xl shadow-2xl"  
                src="assets/frame.png">
         </div>
       </div>
@@ -162,7 +189,7 @@
         <div class="relative z-10">
           <span class="material-symbols-outlined text-4xl mb-2 text-primary">devices</span>
           <h3 class="font-headline-lg text-headline-lg mb-2">Web-Based Launch</h3>
-  </div>   
+  </div>    
 <div class="absolute bottom-0 left-0 right-0 h-[50%] md:h-[70%] flex justify-center translate-y-4 md:translate-y-8 transition-transform group-hover:scale-105">
   <img alt="AR Mobile Preview" 
        class="w-64 md:w-80 h-full object-center object-cover rounded-3xl shadow-xl border-4 border-white/10" 
