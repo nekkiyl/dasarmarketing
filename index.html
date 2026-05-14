@@ -113,24 +113,25 @@
         .hero-gradient {
             background: radial-gradient(circle at 50% -20%, #f3f3f4 0%, #ffffff 100%);
         }
-        /* FIXED: Increased line opacity from 0.015 to 0.06 so it's visible but subtle */
+        /* RE-ENGINEERED: High-contrast visible grid rules */
         .ar-perspective-container {
             position: relative;
             overflow: hidden;
-            perspective: 1000px;
+            perspective: 800px; /* Stronger 3D depth anchor */
         }
         .ar-grid-bg {
             position: absolute;
-            bottom: -30%;
-            left: 0;
-            width: 100%;
+            bottom: -20%;
+            left: -10%;
+            width: 120%;
             height: 100%;
+            /* Explicit high-contrast light gray grid lines */
             background-image: 
-                repeating-linear-gradient(rgba(0, 0, 0, 0.06) 0px, rgba(0, 0, 0, 0.06) 1px, transparent 1px, transparent 40px),
-                repeating-linear-gradient(90deg, rgba(0, 0, 0, 0.06) 0px, rgba(0, 0, 0, 0.06) 1px, transparent 1px, transparent 40px);
-            transform: rotateX(72deg);
+                linear-gradient(to right, #e5e7eb 1px, transparent 1px),
+                linear-gradient(to bottom, #e5e7eb 1px, transparent 1px);
+            background-size: 50px 50px;
+            transform: rotateX(65deg); /* Adjusted tilt angle for higher line visibility */
             transform-origin: center bottom;
-            opacity: 1; /* Locked opacity to full so the grid definition relies strictly on the line color */
             z-index: 1;
             pointer-events: none;
         }
