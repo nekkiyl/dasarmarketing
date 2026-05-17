@@ -99,6 +99,9 @@
       }
     </script>
 <style>
+        html {
+            scroll-behavior: smooth;
+        }
         .material-symbols-outlined {
             font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
             display: inline-block;
@@ -113,11 +116,10 @@
         .hero-gradient {
             background: radial-gradient(circle at 50% -20%, #f3f3f4 0%, #ffffff 100%);
         }
-        /* RE-ENGINEERED: High-contrast visible grid rules */
         .ar-perspective-container {
             position: relative;
             overflow: hidden;
-            perspective: 800px; /* Stronger 3D depth anchor */
+            perspective: 800px;
         }
         .ar-grid-bg {
             position: absolute;
@@ -125,12 +127,11 @@
             left: -10%;
             width: 120%;
             height: 100%;
-            /* Explicit high-contrast light gray grid lines */
             background-image: 
                 linear-gradient(to right, #d1d5db 1px, transparent 1px),
                 linear-gradient(to bottom, #d1d5db 1px, transparent 1px);
             background-size: 50px 50px;
-            transform: rotateX(65deg); /* Adjusted tilt angle for higher line visibility */
+            transform: rotateX(65deg);
             transform-origin: center bottom;
             z-index: 1;
             pointer-events: none;
@@ -166,7 +167,7 @@
     Turn 'hook' to action and conversion.<br>
     No-code. No-app.
 </p><div class="flex flex-col sm:flex-row justify-center items-center gap-stack-md">
-  <a href="mailto:dasar.partnership@gmail.com?subject=Collaboration Inquiry">
+  <a href="#get-started-form">
     <button class="px-10 py-4 bg-[#0071E3] text-white font-body-md text-body-md rounded-full transition-all hover:shadow-lg">Let's Collaborate</button>
   </a>
 </div>
@@ -281,27 +282,16 @@
       <span class="inline-block mb-2 font-label-md text-label-md text-secondary tracking-widest uppercase">USE CASES</span>
       <h2 class="font-display-lg text-display-lg">Our Portfolio</h2>
     </div>
-
     <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
-      
       <div class="group relative overflow-hidden rounded-xl bg-surface-container-low p-6 aspect-[16/9] shadow-sm flex items-center justify-center">
-        <img alt="Portfolio showcase 1" 
-             class="max-w-full max-h-full object-contain transition-transform duration-700 group-hover:scale-105" 
-             src="assets/portfolio1.jpg">
+        <img alt="Portfolio showcase 1" class="max-w-full max-h-full object-contain transition-transform duration-700 group-hover:scale-105" src="assets/portfolio1.jpg">
       </div>
-
       <div class="group relative overflow-hidden rounded-xl bg-surface-container-low p-6 aspect-[16/9] shadow-sm flex items-center justify-center">
-        <img alt="Portfolio showcase 2" 
-             class="max-w-full max-h-full object-contain transition-transform duration-700 group-hover:scale-105" 
-             src="assets/portfolio2.jpg">
+        <img alt="Portfolio showcase 2" class="max-w-full max-h-full object-contain transition-transform duration-700 group-hover:scale-105" src="assets/portfolio2.jpg">
       </div>
-
       <div class="group relative overflow-hidden rounded-xl bg-surface-container-low p-6 aspect-[16/9] shadow-sm flex items-center justify-center">
-        <img alt="Portfolio showcase 3" 
-             class="max-w-full max-h-full object-contain transition-transform duration-700 group-hover:scale-105" 
-             src="assets/portfolio3.jpg">
+        <img alt="Portfolio showcase 3" class="max-w-full max-h-full object-contain transition-transform duration-700 group-hover:scale-105" src="assets/portfolio3.jpg">
       </div>
-
     </div>
   </div>
 </section>
@@ -333,6 +323,13 @@
 </div>
 </div>
 </section>
+
+<section class="py-16 px-gutter bg-primary text-center">
+<div class="max-w-4xl mx-auto">
+<h2 class="font-display-lg text-display-lg text-on-primary leading-tight">No Upfront Investment<br>Pay Only When You Need</h2>
+</div>
+</section>
+
 <section class="py-16 px-gutter bg-white">
 <div class="max-w-container-max mx-auto">
 <div class="grid grid-cols-1 md:grid-cols-2 gap-px bg-outline-variant/30 overflow-hidden rounded-2xl border border-outline-variant/30">
@@ -351,17 +348,79 @@
 </div>
 </div>
 </section>
-<section class="py-16 px-gutter bg-primary text-center">
-<div class="max-w-4xl mx-auto">
-<h2 class="font-display-lg text-display-lg text-on-primary mb-8 leading-tight">No Upfront Investment<br>Pay Only When You Need</h2>
-<a href="mailto:dasar.partnership@gmail.com?subject=Demo Request">
-  <button class="px-10 py-4 bg-white text-primary font-headline-md rounded-full transition-transform hover:scale-105 active:scale-95">
-    Request a Demo
-  </button>
-</a>
-</div>
+
+<section id="get-started-form" class="py-20 px-gutter bg-surface-bright border-t border-outline-variant/20">
+  <div class="max-w-2xl mx-auto">
+    <div class="text-center mb-10">
+      <span class="inline-block mb-2 font-label-md text-label-md text-secondary tracking-widest uppercase">COLLABORATION ENTRY</span>
+      <h2 class="font-display-lg text-display-lg">Partner with DasAR</h2>
+    </div>
+    
+    <iframe name="hidden_iframe" id="hidden_iframe" style="display:none;" onload="if(typeof formSubmitted !== 'undefined' && formSubmitted) { showSuccessMessage(); }"></iframe>
+
+    <form action="https://docs.google.com/forms/d/e/1FAIpQLSeFVPqDdefMe5Qo4-Em1ZIm9m8KDibQqQ3wBX84gISY6tLHyA/formResponse" 
+          method="POST" 
+          target="hidden_iframe" 
+          onsubmit="formSubmitted=true;" 
+          id="native-google-form"
+          class="space-y-6 bg-white p-8 md:p-10 rounded-2xl border border-outline-variant/20 shadow-sm transition-all">
+      
+      <div class="flex flex-col gap-2">
+        <label class="font-body-md font-semibold text-primary">Your Name</label>
+        <input type="text" name="entry.1248389741" required placeholder="Sharon Lee"
+               class="w-full px-4 py-3 rounded-xl bg-surface-container-low border border-outline-variant/20 focus:outline-none focus:border-[#0071E3] focus:bg-white text-body-md transition-all">
+      </div>
+
+      <div class="flex flex-col gap-2">
+        <label class="font-body-md font-semibold text-primary">Your Company / Brand Name</label>
+        <input type="text" name="entry.427276670" required placeholder="MarkeThink Agency"
+               class="w-full px-4 py-3 rounded-xl bg-surface-container-low border border-outline-variant/20 focus:outline-none focus:border-[#0071E3] focus:bg-white text-body-md transition-all">
+      </div>
+
+      <div class="flex flex-col gap-2">
+        <label class="font-body-md font-semibold text-primary">Your Business Email</label>
+        <input type="email" name="entry.1426822400" required placeholder="sharon@agency.com"
+               class="w-full px-4 py-3 rounded-xl bg-surface-container-low border border-outline-variant/20 focus:outline-none focus:border-[#0071E3] focus:bg-white text-body-md transition-all">
+      </div>
+
+      <div class="flex flex-col gap-2">
+        <label class="font-body-md font-semibold text-primary">What is your main use case for Web AR technology?</label>
+        <input type="text" name="entry.523214655" required placeholder="e.g. Marketing Campaign, E-commerce, General Inquiry..."
+               class="w-full px-4 py-3 rounded-xl bg-surface-container-low border border-outline-variant/20 focus:outline-none focus:border-[#0071E3] focus:bg-white text-body-md transition-all">
+      </div>
+
+      <div class="flex flex-col gap-2">
+        <label class="font-body-md font-semibold text-primary">Briefly share your AR project concept</label>
+        <textarea name="entry.1627121911" rows="3" required placeholder="Tell us about the brands or experiences you want to showcase..."
+                  class="w-full px-4 py-3 rounded-xl bg-surface-container-low border border-outline-variant/20 focus:outline-none focus:border-[#0071E3] focus:bg-white text-body-md transition-all resize-none"></textarea>
+      </div>
+
+      <div class="pt-2">
+        <button type="submit" id="form-submit-btn"
+                class="w-full py-4 bg-[#0071E3] text-white font-headline-md rounded-xl transition-all hover:bg-[#0077ED] active:scale-[0.99] shadow-sm">
+          Submit & Start Collaborating
+        </button>
+      </div>
+    </form>
+
+    <div id="success-feedback" class="hidden text-center bg-white p-10 rounded-2xl border border-outline-variant/20 shadow-sm space-y-3">
+      <span class="material-symbols-outlined text-5xl text-emerald-500">check_circle</span>
+      <h3 class="font-headline-lg text-primary">We’ve Received Your Message</h3>
+      <p class="font-body-md text-secondary max-w-md mx-auto">Thank you for connecting with us! Ken, Founder of DasAR, will reach out to you via email shortly.</p>
+    </div>
+  </div>
 </section>
 </main>
+
+<script>
+  // UI Presentation State Switcher
+  function showSuccessMessage() {
+    document.getElementById('native-google-form').classList.add('hidden');
+    document.getElementById('success-feedback').classList.remove('hidden');
+    document.getElementById('success-feedback').scrollIntoView({ behavior: 'smooth', block: 'center' });
+  }
+</script>
+
 <footer class="bg-surface border-t border-outline-variant/30 w-full py-12">
 <div class="max-w-container-max mx-auto px-gutter flex flex-col md:flex-row justify-between items-center gap-6">
 <div class="flex flex-col items-center md:items-start gap-2">
