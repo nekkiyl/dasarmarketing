@@ -141,11 +141,6 @@
             z-index: 10;
         }
         
-        /* Smooth Native Layout Interactions */
-        @keyframes pulseTrack {
-            0%, 100% { transform: translateY(0); }
-            50% { transform: translateY(-4px); }
-        }
         .gsap-hover-card {
             transition: transform 0.4s cubic-bezier(0.25, 1, 0.5, 1), box-shadow 0.4s cubic-bezier(0.25, 1, 0.5, 1), border-color 0.4s cubic-bezier(0.25, 1, 0.5, 1);
             will-change: transform, box-shadow;
@@ -154,6 +149,38 @@
             transform: translateY(-6px) scale(1.01);
             box-shadow: 0 20px 30px -10px rgba(0,0,0,0.06);
         }
+
+        /* ----------------------------------
+           ADDED: Pure CSS Timeline Sequencing
+        ------------------------------------- */
+        @keyframes textReveal {
+            from { opacity: 0; transform: translateY(16px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        @keyframes stepPopOut {
+            0% { opacity: 0; transform: scale(0.85) translateY(20px); }
+            70% { transform: scale(1.03) translateY(-2px); }
+            100% { opacity: 1; transform: scale(1) translateY(0); }
+        }
+
+        /* Fluid Hero Wording Transitions */
+        .reveal-title {
+            animation: textReveal 0.85s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+        }
+        .reveal-subtitle {
+            opacity: 0;
+            animation: textReveal 0.85s cubic-bezier(0.16, 1, 0.3, 1) 0.2s forwards;
+        }
+
+        /* Step by Step Cascade Rules */
+        .step-node {
+            opacity: 0;
+            animation: stepPopOut 0.7s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
+        }
+        .step-delay-1 { animation-delay: 0.1s; }
+        .step-delay-2 { animation-delay: 0.25s; }
+        .step-delay-3 { animation-delay: 0.4s; }
+        .step-delay-4 { animation-delay: 0.55s; }
     </style>
 </head>
 <body class="bg-surface-container-lowest">
@@ -172,15 +199,15 @@
 <section class="hero-gradient pt-32 pb-16 px-gutter text-center ar-perspective-container">
 <div class="ar-grid-bg"></div>
 <div class="max-w-4xl mx-auto hero-content">
-<span class="inline-block mb-2 font-label-md text-label-md text-secondary tracking-widest uppercase">CINEMATIC WEB INTERACTIONS FOR INNOVATIVE AGENCIES</span>
-<h1 class="font-display-xl text-display-xl mb-4 leading-tight tracking-tight text-primary">
+<span class="inline-block mb-2 font-label-md text-label-md text-secondary tracking-widest uppercase reveal-title">WHITE LABEL AR FOR MARKETING AGENCIES</span>
+<h1 class="font-display-xl text-display-xl mb-4 leading-tight tracking-tight text-primary reveal-title" style="animation-delay: 0.08s;">
                 Build in Minutes<br>Bill as Premium
             </h1>
-<p class="font-body-lg text-body-lg text-secondary mb-8 max-w-2xl mx-auto">
-    Bring ultra-smooth spatial performance to your client builds.<br>
-    Marry complex immersive layouts with pure web standards.<br>
-    No developer overhead. No custom engine dependencies.
-</p><div class="flex flex-col sm:flex-row justify-center items-center gap-stack-md">
+<p class="font-body-lg text-body-lg text-secondary mb-8 max-w-2xl mx-auto reveal-subtitle">
+    Web Augmented Reality for your clients.<br>
+    Turn 'hook' to action and conversion.<br>
+    No-code. No-app.
+</p><div class="flex flex-col sm:flex-row justify-center items-center gap-stack-md reveal-subtitle" style="animation-delay: 0.3s;">
   <a href="#get-started-form" class="transition-transform active:scale-95 duration-200">
     <button class="px-10 py-4 bg-[#0071E3] text-white font-body-md text-body-md rounded-full transition-all hover:bg-[#0077ED] hover:shadow-[0_8px_24px_rgba(0,113,227,0.3)]">Let's Collaborate</button>
   </a>
@@ -193,7 +220,7 @@
       <div class="bg-surface-container-low p-8 rounded-xl flex flex-col justify-between overflow-hidden relative group h-[400px] gsap-hover-card border border-transparent hover:border-outline-variant/20">
         <div class="relative z-10">
           <span class="material-symbols-outlined text-4xl mb-2 text-primary">handyman</span>
-          <h3 class="font-headline-lg text-headline-lg mb-2">Zero-Code Pipeline</h3>
+          <h3 class="font-headline-lg text-headline-lg mb-2">No-Code Setup</h3>
         </div>  
         <div class="absolute bottom-0 left-0 right-0 h-[55%] md:h-[65%] flex translate-y-8 translate-x-8 transition-transform group-hover:translate-y-4">
           <img alt="Dashboard interface"  
@@ -204,7 +231,7 @@
       <div class="bg-surface-container-low p-8 rounded-xl flex flex-col justify-between overflow-hidden relative group h-[400px] gsap-hover-card border border-transparent hover:border-outline-variant/20">
         <div class="relative z-10">
           <span class="material-symbols-outlined text-4xl mb-2 text-primary">devices</span>
-          <h3 class="font-headline-lg text-headline-lg mb-2">High-Performance Deployment</h3>
+          <h3 class="font-headline-lg text-headline-lg mb-2">Web-Based Launch</h3>
   </div>    
 <div class="absolute bottom-0 left-0 right-0 h-[50%] md:h-[70%] flex justify-center translate-y-4 md:translate-y-8 transition-transform group-hover:scale-105">
   <img alt="AR Mobile Preview" 
@@ -236,21 +263,21 @@
 <span class="material-symbols-outlined text-primary text-xl transition-colors duration-300 group-hover:text-[#0071E3]" style="font-variation-settings: 'FILL' 1;">lightbulb</span>
 </div>
 <h4 class="font-headline-md text-headline-md">Instant Innovation</h4>
-<p class="font-body-md text-body-md text-secondary">Add breathtaking interactive layouts to your pitch decks and capture higher retainer fees.</p>
+<p class="font-body-md text-body-md text-secondary">Add 'AR Experiences' to your service list overnight and outshine the competition.</p>
 </div>
 <div class="flex flex-col gap-3 group">
 <div class="w-10 h-10 flex items-center justify-center bg-surface-container-low rounded-lg transition-colors duration-300 group-hover:bg-[#0071E3]/10">
 <span class="material-symbols-outlined text-primary text-xl transition-colors duration-300 group-hover:text-[#0071E3]" style="font-variation-settings: 'FILL' 1;">bolt</span>
 </div>
 <h4 class="font-headline-md text-headline-md">Rapid Deployment</h4>
-<p class="font-body-md text-body-md text-secondary">Launch responsive spatial tracking points in minutes with solid hardware acceleration.</p>
+<p class="font-body-md text-body-md text-secondary">Anyone on your team can create in minutes. No experienced developers needed.</p>
 </div>
 <div class="flex flex-col gap-3 group">
 <div class="w-10 h-10 flex items-center justify-center bg-surface-container-low rounded-lg transition-colors duration-300 group-hover:bg-[#0071E3]/10">
 <span class="material-symbols-outlined text-primary text-xl transition-colors duration-300 group-hover:text-[#0071E3]" style="font-variation-settings: 'FILL' 1;">bar_chart</span>
 </div>
 <h4 class="font-headline-md text-headline-md">Scalable Margins</h4>
-<p class="font-body-md text-body-md text-secondary">Deliver premium custom visual experiences without hiring separate development teams.</p>
+<p class="font-body-md text-body-md text-secondary">Minimize internal effort while maximizing your project's billable rates.</p>
 </div>
 </div>
 </section>
@@ -309,32 +336,31 @@
     </div>
   </div>
 </section>
-
 <section class="py-16 px-gutter bg-surface-bright">
 <div class="max-w-container-max mx-auto text-center mb-12">
 <span class="inline-block mb-2 font-label-md text-label-md text-secondary tracking-widest uppercase">4 STEPS. ZERO FRICTION.</span>
 <h2 class="font-display-lg text-display-lg">How to Build<br></h2>
 </div>
 <div class="max-w-container-max mx-auto grid grid-cols-1 md:grid-cols-4 gap-8">
-<div class="relative group">
+<div class="relative group step-node step-delay-1">
 <div class="mb-4 inline-flex items-center justify-center w-10 h-10 rounded-full border border-outline-variant text-primary font-bold group-hover:bg-primary group-hover:text-white group-hover:border-primary transition-all duration-300">1</div>
-<h4 class="font-headline-md text-headline-md mb-2">Map Scenes</h4>
-<p class="font-body-md text-body-md text-secondary">Establish your spatial canvas coordinates in seconds.</p>
+<h4 class="font-headline-md text-headline-md mb-2">Initiate</h4>
+<p class="font-body-md text-body-md text-secondary">Create your project in seconds.</p>
 </div>
-<div class="relative group">
+<div class="relative group window step-node step-delay-2">
 <div class="mb-4 inline-flex items-center justify-center w-10 h-10 rounded-full border border-outline-variant text-primary font-bold group-hover:bg-primary group-hover:text-white group-hover:border-primary transition-all duration-300">2</div>
-<h4 class="font-headline-md text-headline-md mb-2">Inject Assets</h4>
-<p class="font-body-md text-body-md text-secondary">Drop in 3D product configurations directly into the layout.</p>
+<h4 class="font-headline-md text-headline-md mb-2">Import</h4>
+<p class="font-body-md text-body-md text-secondary">Drop in your 3D assets.</p>
 </div>
-<div class="relative group">
+<div class="relative group step-node step-delay-3">
 <div class="mb-4 inline-flex items-center justify-center w-10 h-10 rounded-full border border-outline-variant text-primary font-bold group-hover:bg-primary group-hover:text-white group-hover:border-primary transition-all duration-300">3</div>
-<h4 class="font-headline-md text-headline-md mb-2">Sync Triggers</h4>
-<p class="font-body-md text-body-md text-secondary">Generate responsive tracking paths and interactive anchor states.</p>
+<h4 class="font-headline-md text-headline-md mb-2">Generate</h4>
+<p class="font-body-md text-body-md text-secondary">Instantly generate unique QR link.</p>
 </div>
-<div class="relative group">
+<div class="relative group step-node step-delay-4">
 <div class="mb-4 inline-flex items-center justify-center w-10 h-10 rounded-full border border-outline-variant text-primary font-bold group-hover:bg-primary group-hover:text-white group-hover:border-primary transition-all duration-300">4</div>
-<h4 class="font-headline-md text-headline-md mb-2">Stream Live</h4>
-<p class="font-body-md text-body-md text-secondary">Embed web experiences instantly across any digital campaign viewport.</p>
+<h4 class="font-headline-md text-headline-md mb-2">Deploy</h4>
+<p class="font-body-md text-body-md text-secondary">Embed into your campaign & go live.</p>
 </div>
 </div>
 </section>
@@ -355,7 +381,7 @@
                     </h3>
 </div>
 <div class="bg-white p-10 flex flex-col justify-center relative">
-<div class="absolute top-6 right-6"><span class="bg-[#0071E3]/10 text-[#0071E3] text-[12px] font-semibold uppercase px-3 py-1 rounded-full tracking-wider border border-[#0071E3]/20 shimmer-badge">Recommended</span></div>
+<div class="absolute top-6 right-6"><span class="bg-[#0071E3]/10 text-[#0071E3] text-[12px] font-semibold uppercase px-3 py-1 rounded-full tracking-wider border border-[#0071E3]/20">Recommended</span></div>
 <span class="inline-block mb-4 font-label-md text-label-md text-primary tracking-wider uppercase">OUR SOLUTION</span>
 <h3 class="font-headline-lg text-headline-lg text-primary leading-tight">
                         We <span class="text-[#0071E3]">absorb development cost</span> for you, just <span class="text-[#0071E3]">project-based</span> model</h3>
@@ -373,7 +399,7 @@
     
     <iframe name="hidden_iframe" id="hidden_iframe" style="display:none;" onload="if(typeof formSubmitted !== 'undefined' && formSubmitted) { showSuccessMessage(); }"></iframe>
 
-    <form action="https://docs.google.com/forms/d/e/1FAIpQLSeFVPqDdefMe5Qo4-Em1ZIm9m8KDibQqQ3wBX84gISY6tLHyA/formResponse" 
+    <form action="https://docs.google.com/forms/d/e/1FAIpQLSeFVPqDdefMe5Qo4-Em1ZIm8KDibQqQ3wBX84gISY6tLHyA/formResponse" 
           method="POST" 
           target="hidden_iframe" 
           onsubmit="formSubmitted=true;" 
