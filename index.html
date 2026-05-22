@@ -5,6 +5,10 @@
 <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
 <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet">
 <link href="https://cdn.jsdelivr.net/npm/geist@1.3.0/dist/fonts/geist.min.css" rel="stylesheet">
+<!-- GSAP Core & ScrollTrigger CDN -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+
 <script id="tailwind-config">
       tailwind.config = {
         darkMode: "class",
@@ -112,6 +116,7 @@
             background-color: #ffffff;
             color: #030304;
             -webkit-font-smoothing: antialiased;
+            overflow-x: hidden;
         }
         .hero-gradient {
             background: radial-gradient(circle at 50% -20%, #f3f3f4 0%, #ffffff 100%);
@@ -140,47 +145,16 @@
             position: relative;
             z-index: 10;
         }
-        
-        .gsap-hover-card {
-            transition: transform 0.4s cubic-bezier(0.25, 1, 0.5, 1), box-shadow 0.4s cubic-bezier(0.25, 1, 0.5, 1), border-color 0.4s cubic-bezier(0.25, 1, 0.5, 1);
-            will-change: transform, box-shadow;
-        }
-        .gsap-hover-card:hover {
-            transform: translateY(-6px) scale(1.01);
-            box-shadow: 0 20px 30px -10px rgba(0,0,0,0.06);
-        }
-
-        /* ----------------------------------
-           ADDED: Pure CSS Timeline Sequencing
-        ------------------------------------- */
-        @keyframes textReveal {
-            from { opacity: 0; transform: translateY(16px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
-        @keyframes stepPopOut {
-            0% { opacity: 0; transform: scale(0.85) translateY(20px); }
-            70% { transform: scale(1.03) translateY(-2px); }
-            100% { opacity: 1; transform: scale(1) translateY(0); }
-        }
-
-        /* Fluid Hero Wording Transitions */
-        .reveal-title {
-            animation: textReveal 0.85s cubic-bezier(0.16, 1, 0.3, 1) forwards;
-        }
-        .reveal-subtitle {
+        /* Target classes for clean GSAP state initiations */
+        .reveal-section {
             opacity: 0;
-            animation: textReveal 0.85s cubic-bezier(0.16, 1, 0.3, 1) 0.2s forwards;
+            transform: translateY(40px);
         }
-
-        /* Step by Step Cascade Rules */
-        .step-node {
+        .word-span {
+            display: inline-block;
             opacity: 0;
-            animation: stepPopOut 0.7s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
+            transform: translateY(20px);
         }
-        .step-delay-1 { animation-delay: 0.1s; }
-        .step-delay-2 { animation-delay: 0.25s; }
-        .step-delay-3 { animation-delay: 0.4s; }
-        .step-delay-4 { animation-delay: 0.55s; }
     </style>
 </head>
 <body class="bg-surface-container-lowest">
@@ -199,36 +173,37 @@
 <section class="hero-gradient pt-32 pb-16 px-gutter text-center ar-perspective-container">
 <div class="ar-grid-bg"></div>
 <div class="max-w-4xl mx-auto hero-content">
-<span class="inline-block mb-2 font-label-md text-label-md text-secondary tracking-widest uppercase reveal-title">WHITE LABEL AR FOR MARKETING AGENCIES</span>
-<h1 class="font-display-xl text-display-xl mb-4 leading-tight tracking-tight text-primary reveal-title" style="animation-delay: 0.08s;">
-                Build in Minutes<br>Bill as Premium
-            </h1>
-<p class="font-body-lg text-body-lg text-secondary mb-8 max-w-2xl mx-auto reveal-subtitle">
+<span class="inline-block mb-2 font-label-md text-label-md text-secondary tracking-widest uppercase opacity-0 structural-hero-tag">WHITE LABEL AR FOR MARKETING AGENCIES</span>
+<h1 class="font-display-xl text-display-xl mb-4 leading-tight tracking-tight text-primary id-hero-title">
+     <!-- Wrapped pieces for premium word sequencing transition -->
+     <span class="word-span">Build</span> <span class="word-span">in</span> <span class="word-span">Minutes,</span><br><span class="word-span text-[#0071E3]">Bill</span> <span class="word-span text-[#0071E3]">as</span> <span class="word-span text-[#0071E3]">Premium</span>
+</h1>
+<p class="font-body-lg text-body-lg text-secondary mb-8 max-w-2xl mx-auto opacity-0 structural-hero-p">
     Web Augmented Reality for your clients.<br>
     Turn 'hook' to action and conversion.<br>
     No-code. No-app.
-</p><div class="flex flex-col sm:flex-row justify-center items-center gap-stack-md reveal-subtitle" style="animation-delay: 0.3s;">
-  <a href="#get-started-form" class="transition-transform active:scale-95 duration-200">
-    <button class="px-10 py-4 bg-[#0071E3] text-white font-body-md text-body-md rounded-full transition-all hover:bg-[#0077ED] hover:shadow-[0_8px_24px_rgba(0,113,227,0.3)]">Let's Collaborate</button>
+</p><div class="flex flex-col sm:flex-row justify-center items-center gap-stack-md opacity-0 structural-hero-btn">
+  <a href="#get-started-form">
+    <button class="px-10 py-4 bg-[#0071E3] text-white font-body-md text-body-md rounded-full transition-all hover:shadow-lg">Let's Collaborate</button>
   </a>
 </div>
 </div>
 </section>
-<section class="py-16 px-gutter bg-white">
+<section class="py-16 px-gutter bg-white reveal-section">
   <div class="max-w-container-max mx-auto">
-    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-      <div class="bg-surface-container-low p-8 rounded-xl flex flex-col justify-between overflow-hidden relative group h-[400px] gsap-hover-card border border-transparent hover:border-outline-variant/20">
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-6 class-card-parent">
+      <div class="bg-surface-container-low p-8 rounded-xl flex flex-col justify-between overflow-hidden relative group h-[400px] sequencing-pop">
         <div class="relative z-10">
           <span class="material-symbols-outlined text-4xl mb-2 text-primary">handyman</span>
           <h3 class="font-headline-lg text-headline-lg mb-2">No-Code Setup</h3>
         </div>  
         <div class="absolute bottom-0 left-0 right-0 h-[55%] md:h-[65%] flex translate-y-8 translate-x-8 transition-transform group-hover:translate-y-4">
-          <img alt="Dashboard interface"  
+          <img alt="Dashboard interface"   
                class="w-[120%] max-w-none h-full object-left object-cover rounded-tl-xl shadow-2xl"  
                src="assets/frame.png">
         </div>
       </div>
-      <div class="bg-surface-container-low p-8 rounded-xl flex flex-col justify-between overflow-hidden relative group h-[400px] gsap-hover-card border border-transparent hover:border-outline-variant/20">
+      <div class="bg-surface-container-low p-8 rounded-xl flex flex-col justify-between overflow-hidden relative group h-[400px] sequencing-pop">
         <div class="relative z-10">
           <span class="material-symbols-outlined text-4xl mb-2 text-primary">devices</span>
           <h3 class="font-headline-lg text-headline-lg mb-2">Web-Based Launch</h3>
@@ -242,15 +217,15 @@
     </div>
   </div>
 </section>
-<section class="py-16 px-gutter bg-white">
+<section class="py-16 px-gutter bg-white reveal-section">
 <div class="max-w-container-max mx-auto text-center">
 <h2 class="font-headline-lg text-headline-lg mb-8 max-w-4xl mx-auto"><span class="" style="font-family: Geist, -apple-system, BlinkMacSystemFont, sans-serif; letter-spacing: -0.01em;">Behaviour Changes. Marketing Evolves.</span></h2>
-<div class="max-w-5xl mx-auto overflow-hidden rounded-xl shadow-sm hover:shadow-md transition-shadow duration-300">
+<div class="max-w-5xl mx-auto">
 <img alt="Evolution of Advertising from 1980s to Future Spatial AR" class="w-full h-auto rounded-xl object-contain" src="assets/marketing%20evolution.png">
 </div>
 </div>
 </section>
-<section class="py-16 px-gutter bg-white border-b border-outline-variant/10">
+<section class="py-16 px-gutter bg-white border-b border-outline-variant/10 reveal-section">
 <div class="max-w-container-max mx-auto mb-12">
 <div class="max-w-2xl mx-auto text-center">
 <span class="inline-block mb-2 font-label-md text-label-md text-secondary tracking-widest uppercase">ENGINEERED FOR MARKETING AGENCIES</span>
@@ -258,57 +233,57 @@
 </div>
 </div>
 <div class="max-w-container-max mx-auto grid grid-cols-1 md:grid-cols-3 gap-8">
-<div class="flex flex-col gap-3 group">
-<div class="w-10 h-10 flex items-center justify-center bg-surface-container-low rounded-lg transition-colors duration-300 group-hover:bg-[#0071E3]/10">
-<span class="material-symbols-outlined text-primary text-xl transition-colors duration-300 group-hover:text-[#0071E3]" style="font-variation-settings: 'FILL' 1;">lightbulb</span>
+<div class="flex flex-col gap-3 sequencing-pop">
+<div class="w-10 h-10 flex items-center justify-center bg-surface-container-low rounded-lg">
+<span class="material-symbols-outlined text-primary text-xl" style="font-variation-settings: 'FILL' 1;">lightbulb</span>
 </div>
 <h4 class="font-headline-md text-headline-md">Instant Innovation</h4>
 <p class="font-body-md text-body-md text-secondary">Add 'AR Experiences' to your service list overnight and outshine the competition.</p>
 </div>
-<div class="flex flex-col gap-3 group">
-<div class="w-10 h-10 flex items-center justify-center bg-surface-container-low rounded-lg transition-colors duration-300 group-hover:bg-[#0071E3]/10">
-<span class="material-symbols-outlined text-primary text-xl transition-colors duration-300 group-hover:text-[#0071E3]" style="font-variation-settings: 'FILL' 1;">bolt</span>
+<div class="flex flex-col gap-3 sequencing-pop">
+<div class="w-10 h-10 flex items-center justify-center bg-surface-container-low rounded-lg">
+<span class="material-symbols-outlined text-primary text-xl" style="font-variation-settings: 'FILL' 1;">bolt</span>
 </div>
 <h4 class="font-headline-md text-headline-md">Rapid Deployment</h4>
 <p class="font-body-md text-body-md text-secondary">Anyone on your team can create in minutes. No experienced developers needed.</p>
 </div>
-<div class="flex flex-col gap-3 group">
-<div class="w-10 h-10 flex items-center justify-center bg-surface-container-low rounded-lg transition-colors duration-300 group-hover:bg-[#0071E3]/10">
-<span class="material-symbols-outlined text-primary text-xl transition-colors duration-300 group-hover:text-[#0071E3]" style="font-variation-settings: 'FILL' 1;">bar_chart</span>
+<div class="flex flex-col gap-3 sequencing-pop">
+<div class="w-10 h-10 flex items-center justify-center bg-surface-container-low rounded-lg">
+<span class="material-symbols-outlined text-primary text-xl" style="font-variation-settings: 'FILL' 1;">bar_chart</span>
 </div>
 <h4 class="font-headline-md text-headline-md">Scalable Margins</h4>
 <p class="font-body-md text-body-md text-secondary">Minimize internal effort while maximizing your project's billable rates.</p>
 </div>
 </div>
 </section>
-<section class="py-16 px-gutter bg-white">
+<section class="py-16 px-gutter bg-white reveal-section">
 <div class="max-w-container-max mx-auto text-center mb-12">
 <span class="inline-block mb-2 font-label-md text-label-md text-secondary tracking-widest uppercase">CLIENT TYPE</span>
 <h2 class="font-display-lg text-display-lg">Who Are Your Target Brands</h2>
 </div>
 <div class="max-w-container-max mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
-<div class="group relative overflow-hidden rounded-xl bg-white aspect-[3/4] shadow-sm">
+<div class="group relative overflow-hidden rounded-xl bg-white aspect-[3/4] sequencing-pop">
 <img alt="A stunning, high-contrast photograph of a minimalist designer chair positioned in a bright, white-walled gallery space." class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBPVzC817V5X-9KqjptnehxZ2Y0kxfeu02VksL267uFtzc_yQ2IVqg1lxneBnQf6BIeTEkH8PKQg0RHsOkGgBFItkCzsQWh0ca-iBz9qY02HFfeMgRw6eciLzBNZtqjVS_iashYQYK8nUhgPUnlnauu9o5wnjUQoGGzTpHNWW4azOpivb-WSwcUXvF1_amCD2d_bLj8Nh0MvONLtHIosmn6Ab96Dss0tSzNv33YJUEYM4cXsybxadiAN72x32fMlxK01znQtbLqgbZE">
 <div class="absolute inset-0 bg-gradient-to-t from-primary/80 to-transparent p-6 flex flex-col justify-end">
 <h4 class="font-headline-md text-white mb-1">Luxury Furnitures</h4>
 <p class="text-white/80 font-body-md text-sm">Visualize furniture with 1:1 accuracy.</p>
 </div>
 </div>
-<div class="group relative overflow-hidden rounded-xl bg-white aspect-[3/4] shadow-sm">
+<div class="group relative overflow-hidden rounded-xl bg-white aspect-[3/4] sequencing-pop">
 <img alt="A macro shot of a sleek, high-end audio speaker featuring brushed metal textures and minimal design." class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDb_Sarz-diqyROjMh2JxnbdpNxkQYCGqAv1o3T5USZ0ztdTiqBMOK1CTU396cn3TshLY79GLbDDRCXF_W8nNlV9WBSKK8bQ1bhm18zLqg2Zg55oUaeGp53kMGUJtMIIcEbT73eB0GQdi7ku5HHnZ3vw9qtP-IpGCD-Gw-X0-lYtyrDo1CKOeA1qyAbyw70DlSkmkkKHv3pmpn7eLa502R1GJJNz8V_cOdk1sNk7sTd4OtCwM36HCjymTxsvkyyqjmCwT-63EgrPg5y">
 <div class="absolute inset-0 bg-gradient-to-t from-primary/80 to-transparent p-6 flex flex-col justify-end">
 <h4 class="font-headline-md text-white mb-1">Premium Gadgets</h4>
 <p class="text-white/80 font-body-md text-sm">Showcase tech in their environment.</p>
 </div>
 </div>
-<div class="group relative overflow-hidden rounded-xl bg-white aspect-[3/4] shadow-sm">
+<div class="group relative overflow-hidden rounded-xl bg-white aspect-[3/4] sequencing-pop">
 <img alt="A professional-grade espresso machine with polished chrome surfaces." class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAYcvhyLr_n3iz8dxL4KihlHzDdpJe6l9R8gmAtbsIPUda79jcU5Gx698MT-bXQg5dhQNypyPWVXacYv2j_ipc9uaa7YFL-F0_MMd6iPlWuzFRbMM9IW_vXY64MtJZUk6khfDZnYquth5q1qleMhHDF0pi91xs0LkGKnWVdqu9Vw7arnxxZuBhm-nG5Leh2T6K_xM98VbjqC1RhbZLyUQq5DVQD_lIYHZlsnWCvEg9csaVjuUR_rF795FDnWCQSAnsfGRrQ8kdVBu3j">
 <div class="absolute inset-0 bg-gradient-to-t from-primary/80 to-transparent p-6 flex flex-col justify-end">
 <h4 class="font-headline-md text-white mb-1">Commercial Appliances</h4>
 <p class="text-white/80 font-body-md text-sm">Visualize heavy tools instantly.</p>
 </div>
 </div>
-<div class="group relative overflow-hidden rounded-xl bg-white aspect-[3/4] shadow-sm">
+<div class="group relative overflow-hidden rounded-xl bg-white aspect-[3/4] sequencing-pop">
 <img alt="Modern medical diagnostic equipment in a sterile, minimalist hospital room setting." class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCJgfFDdOmn6wuTIRk4Wc5j-hCyujhgw0sm5qplzAuBEfNWmeq2OcPRxFpB-8SG9J1WYiaWyJHr5Mf5wO9ozl6H9JiT8NRjLf7k3Mo5tmlzhO2yQ7GlvpyE9Pgal91XvLTEwfyI3i4V1npTEMv6yaCk3MddOG_wEccM6FkpiK3Vn5AIA8I5agtYw0nYCZcLA82xRIN9YTNTHdDfyVTiwJuSeKgpXA2dCA5BSAgrAbKLRQwf9VyEPZ8WM2-wVGEIqhsb7v3G0XTE96nK">
 <div class="absolute inset-0 bg-gradient-to-t from-primary/80 to-transparent p-6 flex flex-col justify-end">
 <h4 class="font-headline-md text-white mb-1">Industrial & Med Tech</h4>
@@ -317,70 +292,76 @@
 </div>
 </div>
 </section>
-<section class="py-16 px-gutter bg-white">
+<section class="py-16 px-gutter bg-white reveal-section">
   <div class="max-w-container-max mx-auto">
     <div class="text-center mb-12">
       <span class="inline-block mb-2 font-label-md text-label-md text-secondary tracking-widest uppercase">USE CASES</span>
       <h2 class="font-display-lg text-display-lg">Our Portfolio</h2>
     </div>
     <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
-      <div class="group relative overflow-hidden rounded-xl bg-surface-container-low aspect-[3/4] shadow-sm gsap-hover-card border border-transparent hover:border-outline-variant/20">
-        <img alt="Portfolio showcase 1" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" src="assets/portfolio1.jpg">
+      <div class="group relative overflow-hidden rounded-xl bg-surface-container-low aspect-[3/4] shadow-sm sequencing-pop">
+        <img alt="Portfolio showcase 1" 
+             class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" 
+             src="assets/portfolio1.jpg">
       </div>
-      <div class="group relative overflow-hidden rounded-xl bg-surface-container-low aspect-[3/4] shadow-sm gsap-hover-card border border-transparent hover:border-outline-variant/20">
-        <img alt="Portfolio showcase 2" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" src="assets/portfolio2.jpg">
+      <div class="group relative overflow-hidden rounded-xl bg-surface-container-low aspect-[3/4] shadow-sm sequencing-pop">
+        <img alt="Portfolio showcase 2" 
+             class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" 
+             src="assets/portfolio2.jpg">
       </div>
-      <div class="group relative overflow-hidden rounded-xl bg-surface-container-low aspect-[3/4] shadow-sm gsap-hover-card border border-transparent hover:border-outline-variant/20">
-        <img alt="Portfolio showcase 3" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" src="assets/portfolio3.jpg">
+      <div class="group relative overflow-hidden rounded-xl bg-surface-container-low aspect-[3/4] shadow-sm sequencing-pop">
+        <img alt="Portfolio showcase 3" 
+             class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" 
+             src="assets/portfolio3.jpg">
       </div>
     </div>
   </div>
 </section>
-<section class="py-16 px-gutter bg-surface-bright">
+<section class="py-16 px-gutter bg-surface-bright reveal-section">
 <div class="max-w-container-max mx-auto text-center mb-12">
 <span class="inline-block mb-2 font-label-md text-label-md text-secondary tracking-widest uppercase">4 STEPS. ZERO FRICTION.</span>
 <h2 class="font-display-lg text-display-lg">How to Build<br></h2>
 </div>
 <div class="max-w-container-max mx-auto grid grid-cols-1 md:grid-cols-4 gap-8">
-<div class="relative group step-node step-delay-1">
-<div class="mb-4 inline-flex items-center justify-center w-10 h-10 rounded-full border border-outline-variant text-primary font-bold group-hover:bg-primary group-hover:text-white group-hover:border-primary transition-all duration-300">1</div>
+<div class="relative group sequencing-pop">
+<div class="mb-4 inline-flex items-center justify-center w-10 h-10 rounded-full border border-outline-variant text-primary font-bold group-hover:bg-primary group-hover:text-white transition-all">1</div>
 <h4 class="font-headline-md text-headline-md mb-2">Initiate</h4>
 <p class="font-body-md text-body-md text-secondary">Create your project in seconds.</p>
 </div>
-<div class="relative group window step-node step-delay-2">
-<div class="mb-4 inline-flex items-center justify-center w-10 h-10 rounded-full border border-outline-variant text-primary font-bold group-hover:bg-primary group-hover:text-white group-hover:border-primary transition-all duration-300">2</div>
+<div class="relative group sequencing-pop">
+<div class="mb-4 inline-flex items-center justify-center w-10 h-10 rounded-full border border-outline-variant text-primary font-bold group-hover:bg-primary group-hover:text-white transition-all">2</div>
 <h4 class="font-headline-md text-headline-md mb-2">Import</h4>
 <p class="font-body-md text-body-md text-secondary">Drop in your 3D assets.</p>
 </div>
-<div class="relative group step-node step-delay-3">
-<div class="mb-4 inline-flex items-center justify-center w-10 h-10 rounded-full border border-outline-variant text-primary font-bold group-hover:bg-primary group-hover:text-white group-hover:border-primary transition-all duration-300">3</div>
+<div class="relative group sequencing-pop">
+<div class="mb-4 inline-flex items-center justify-center w-10 h-10 rounded-full border border-outline-variant text-primary font-bold group-hover:bg-primary group-hover:text-white transition-all">3</div>
 <h4 class="font-headline-md text-headline-md mb-2">Generate</h4>
 <p class="font-body-md text-body-md text-secondary">Instantly generate unique QR link.</p>
 </div>
-<div class="relative group step-node step-delay-4">
-<div class="mb-4 inline-flex items-center justify-center w-10 h-10 rounded-full border border-outline-variant text-primary font-bold group-hover:bg-primary group-hover:text-white group-hover:border-primary transition-all duration-300">4</div>
+<div class="relative group sequencing-pop">
+<div class="mb-4 inline-flex items-center justify-center w-10 h-10 rounded-full border border-outline-variant text-primary font-bold group-hover:bg-primary group-hover:text-white transition-all">4</div>
 <h4 class="font-headline-md text-headline-md mb-2">Deploy</h4>
 <p class="font-body-md text-body-md text-secondary">Embed into your campaign & go live.</p>
 </div>
 </div>
 </section>
 
-<section class="py-16 px-gutter bg-primary text-center">
+<section class="py-16 px-gutter bg-primary text-center reveal-section">
 <div class="max-w-4xl mx-auto">
 <h2 class="font-display-lg text-display-lg text-on-primary leading-tight">No Upfront Investment<br>Pay Only When You Need</h2>
 </div>
 </section>
 
-<section class="py-16 px-gutter bg-white">
+<section class="py-16 px-gutter bg-white reveal-section">
 <div class="max-w-container-max mx-auto">
-<div class="grid grid-cols-1 md:grid-cols-2 gap-px bg-outline-variant/30 overflow-hidden rounded-2xl border border-outline-variant/30 shadow-sm">
-<div class="bg-surface-container-low p-10 flex flex-col justify-center">
+<div class="grid grid-cols-1 md:grid-cols-2 gap-px bg-outline-variant/30 overflow-hidden rounded-2xl border border-outline-variant/30">
+<div class="bg-surface-container-low p-10 flex flex-col justify-center sequencing-pop">
 <span class="inline-block mb-4 font-label-md text-label-md text-secondary/60 tracking-wider uppercase">TRADITIONAL APPROACH</span>
 <h3 class="font-headline-lg text-headline-lg text-secondary/70 leading-tight">
                         Custom development requires <span class="text-primary font-bold">5-figure</span> development cost and <span class="text-primary font-bold">monthly maintenance</span> cost
                     </h3>
 </div>
-<div class="bg-white p-10 flex flex-col justify-center relative">
+<div class="bg-white p-10 flex flex-col justify-center relative sequencing-pop">
 <div class="absolute top-6 right-6"><span class="bg-[#0071E3]/10 text-[#0071E3] text-[12px] font-semibold uppercase px-3 py-1 rounded-full tracking-wider border border-[#0071E3]/20">Recommended</span></div>
 <span class="inline-block mb-4 font-label-md text-label-md text-primary tracking-wider uppercase">OUR SOLUTION</span>
 <h3 class="font-headline-lg text-headline-lg text-primary leading-tight">
@@ -390,7 +371,7 @@
 </div>
 </section>
 
-<section id="get-started-form" class="py-20 px-gutter bg-surface-bright border-t border-outline-variant/20">
+<section id="get-started-form" class="py-20 px-gutter bg-surface-bright border-t border-outline-variant/20 reveal-section">
   <div class="max-w-2xl mx-auto">
     <div class="text-center mb-10">
       <span class="inline-block mb-2 font-label-md text-label-md text-secondary tracking-widest uppercase">COLLABORATION ENTRY</span>
@@ -399,39 +380,39 @@
     
     <iframe name="hidden_iframe" id="hidden_iframe" style="display:none;" onload="if(typeof formSubmitted !== 'undefined' && formSubmitted) { showSuccessMessage(); }"></iframe>
 
-    <form action="https://docs.google.com/forms/d/e/1FAIpQLSeFVPqDdefMe5Qo4-Em1ZIm8KDibQqQ3wBX84gISY6tLHyA/formResponse" 
+    <form action="https://docs.google.com/forms/d/e/1FAIpQLSeFVPqDdefMe5Qo4-Em1ZIm9m8KDibQqQ3wBX84gISY6tLHyA/formResponse" 
           method="POST" 
           target="hidden_iframe" 
           onsubmit="formSubmitted=true;" 
           id="native-google-form"
           class="space-y-6 bg-white p-8 md:p-10 rounded-2xl border border-outline-variant/20 shadow-sm transition-all">
       
-      <div class="flex flex-col gap-2 relative group/field">
-        <label class="font-body-md font-semibold text-primary transition-colors duration-300 group-focus-within/field:text-[#0071E3]">Your Name</label>
+      <div class="flex flex-col gap-2">
+        <label class="font-body-md font-semibold text-primary">Your Name</label>
         <input type="text" name="entry.1248389741" required placeholder="Sharon Lee"
                class="w-full px-4 py-3 rounded-xl bg-surface-container-low border border-outline-variant/20 focus:outline-none focus:border-[#0071E3] focus:bg-white text-body-md transition-all">
       </div>
 
-      <div class="flex flex-col gap-2 relative group/field">
-        <label class="font-body-md font-semibold text-primary transition-colors duration-300 group-focus-within/field:text-[#0071E3]">Your Company / Brand Name</label>
+      <div class="flex flex-col gap-2">
+        <label class="font-body-md font-semibold text-primary">Your Company / Brand Name</label>
         <input type="text" name="entry.427276670" required placeholder="MarkeThink Agency"
                class="w-full px-4 py-3 rounded-xl bg-surface-container-low border border-outline-variant/20 focus:outline-none focus:border-[#0071E3] focus:bg-white text-body-md transition-all">
       </div>
 
-      <div class="flex flex-col gap-2 relative group/field">
-        <label class="font-body-md font-semibold text-primary transition-colors duration-300 group-focus-within/field:text-[#0071E3]">Your Business Email</label>
+      <div class="flex flex-col gap-2">
+        <label class="font-body-md font-semibold text-primary">Your Business Email</label>
         <input type="email" name="entry.1426822400" required placeholder="sharon@agency.com"
                class="w-full px-4 py-3 rounded-xl bg-surface-container-low border border-outline-variant/20 focus:outline-none focus:border-[#0071E3] focus:bg-white text-body-md transition-all">
       </div>
 
-      <div class="flex flex-col gap-2 relative group/field">
-        <label class="font-body-md font-semibold text-primary transition-colors duration-300 group-focus-within/field:text-[#0071E3]">What is your main use case for Web AR technology?</label>
+      <div class="flex flex-col gap-2">
+        <label class="font-body-md font-semibold text-primary">What is your main use case for Web AR technology?</label>
         <input type="text" name="entry.523214655" required placeholder="e.g. Marketing Campaign, E-commerce, General Inquiry..."
                class="w-full px-4 py-3 rounded-xl bg-surface-container-low border border-outline-variant/20 focus:outline-none focus:border-[#0071E3] focus:bg-white text-body-md transition-all">
       </div>
 
-      <div class="flex flex-col gap-2 relative group/field">
-        <label class="font-body-md font-semibold text-primary transition-colors duration-300 group-focus-within/field:text-[#0071E3]">Briefly share your AR project concept</label>
+      <div class="flex flex-col gap-2">
+        <label class="font-body-md font-semibold text-primary">Briefly share your AR project concept</label>
         <textarea name="entry.1627121911" rows="3" required placeholder="Tell us about the brands or experiences you want to showcase..."
                   class="w-full px-4 py-3 rounded-xl bg-surface-container-low border border-outline-variant/20 focus:outline-none focus:border-[#0071E3] focus:bg-white text-body-md transition-all resize-none"></textarea>
       </div>
@@ -454,11 +435,73 @@
 </main>
 
 <script>
+  // UI Presentation State Switcher
   function showSuccessMessage() {
     document.getElementById('native-google-form').classList.add('hidden');
     document.getElementById('success-feedback').classList.remove('hidden');
     document.getElementById('success-feedback').scrollIntoView({ behavior: 'smooth', block: 'center' });
   }
+
+  // --- GSAP Premium UI/UX Animation Implementation ---
+  document.addEventListener("DOMContentLoaded", () => {
+    // Register ScrollTrigger Extension
+    gsap.registerPlugin(ScrollTrigger);
+
+    // 1. Hero Content Initial Sequencing Timeline
+    const heroTl = gsap.timeline({ defaults: { ease: "power4.out" } });
+    
+    heroTl.to(".structural-hero-tag", { opacity: 1, duration: 0.6 })
+          .to(".word-span", { 
+             opacity: 1, 
+             y: 0, 
+             duration: 0.8, 
+             stagger: 0.1 
+          }, "-=0.3")
+          .to(".structural-hero-p", { opacity: 1, duration: 0.6 }, "-=0.4")
+          .to(".structural-hero-btn", { opacity: 1, duration: 0.6 }, "-=0.4");
+
+    // 2. Global Structural Section Transitions
+    const structuralSections = gsap.utils.toArray(".reveal-section");
+    structuralSections.forEach((section) => {
+      gsap.to(section, {
+        opacity: 1,
+        y: 0,
+        duration: 1,
+        ease: "power3.out",
+        scrollTrigger: {
+          trigger: section,
+          start: "top 82%", 
+          toggleActions: "play none none none"
+        }
+      });
+    });
+
+    // 3. Sequential Grid & Element Pop-Out Logic
+    const contentParents = gsap.utils.toArray([
+       ".class-card-parent", 
+       "main .grid"
+    ]);
+    
+    contentParents.forEach((parent) => {
+      const popTargets = parent.querySelectorAll(".sequencing-pop");
+      if (popTargets.length > 0) {
+        // Set initialization parameters
+        gsap.set(popTargets, { scale: 0.9, opacity: 0 });
+        
+        gsap.to(popTargets, {
+          scale: 1,
+          opacity: 1,
+          duration: 0.7,
+          ease: "back.out(1.5)",
+          stagger: 0.15,
+          scrollTrigger: {
+            trigger: parent,
+            start: "top 85%"
+          }
+        });
+      }
+    });
+  });
 </script>
 
 <footer class="bg-surface border-t border-outline-variant/30 w-full py-12">
