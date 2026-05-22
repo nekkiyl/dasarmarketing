@@ -141,27 +141,18 @@
             z-index: 10;
         }
         
-        /* Premium Native CSS Transitions (Zero JavaScript Dependency) */
+        /* Smooth Native Layout Interactions */
         @keyframes pulseTrack {
             0%, 100% { transform: translateY(0); }
             50% { transform: translateY(-4px); }
         }
-        @keyframes subtleShimmer {
-            0% { opacity: 0.8; }
-            50% { opacity: 1; transform: scale(1.03); }
-            100% { opacity: 0.8; }
-        }
-        
         .gsap-hover-card {
-            transition: transform 0.45s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.45s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.45s cubic-bezier(0.16, 1, 0.3, 1);
+            transition: transform 0.4s cubic-bezier(0.25, 1, 0.5, 1), box-shadow 0.4s cubic-bezier(0.25, 1, 0.5, 1), border-color 0.4s cubic-bezier(0.25, 1, 0.5, 1);
             will-change: transform, box-shadow;
         }
         .gsap-hover-card:hover {
-            transform: translateY(-8px);
-            box-shadow: 0 30px 45px -15px rgba(0,0,0,0.08);
-        }
-        .shimmer-badge {
-            animation: subtleShimmer 3s infinite ease-in-out;
+            transform: translateY(-6px) scale(1.01);
+            box-shadow: 0 20px 30px -10px rgba(0,0,0,0.06);
         }
     </style>
 </head>
@@ -177,22 +168,21 @@
 </div>
 </div>
 </nav>
-<div class="max-w-container-max mx-auto px-gutter h-14"></div>
 <main>
 <section class="hero-gradient pt-32 pb-16 px-gutter text-center ar-perspective-container">
 <div class="ar-grid-bg"></div>
 <div class="max-w-4xl mx-auto hero-content">
-<span class="inline-block mb-2 font-label-md text-label-md text-secondary tracking-widest uppercase">WHITE LABEL AR FOR MARKETING AGENCIES</span>
+<span class="inline-block mb-2 font-label-md text-label-md text-secondary tracking-widest uppercase">CINEMATIC WEB INTERACTIONS FOR INNOVATIVE AGENCIES</span>
 <h1 class="font-display-xl text-display-xl mb-4 leading-tight tracking-tight text-primary">
                 Build in Minutes<br>Bill as Premium
             </h1>
 <p class="font-body-lg text-body-lg text-secondary mb-8 max-w-2xl mx-auto">
-    Web Augmented Reality for your clients.<br>
-    Turn 'hook' to action and conversion.<br>
-    No-code. No-app.
+    Bring ultra-smooth spatial performance to your client builds.<br>
+    Marry complex immersive layouts with pure web standards.<br>
+    No developer overhead. No custom engine dependencies.
 </p><div class="flex flex-col sm:flex-row justify-center items-center gap-stack-md">
   <a href="#get-started-form" class="transition-transform active:scale-95 duration-200">
-    <button class="px-10 py-4 bg-[#0071E3] text-white font-body-md text-body-md rounded-full transition-all hover:bg-[#0077ED] hover:shadow-[0_12px_28px_rgba(0,113,227,0.35)]">Let's Collaborate</button>
+    <button class="px-10 py-4 bg-[#0071E3] text-white font-body-md text-body-md rounded-full transition-all hover:bg-[#0077ED] hover:shadow-[0_8px_24px_rgba(0,113,227,0.3)]">Let's Collaborate</button>
   </a>
 </div>
 </div>
@@ -200,25 +190,25 @@
 <section class="py-16 px-gutter bg-white">
   <div class="max-w-container-max mx-auto">
     <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-      <div class="bg-surface-container-low p-8 rounded-xl flex flex-col justify-between overflow-hidden relative group h-[400px] gsap-hover-card border border-transparent hover:border-outline-variant/30">
+      <div class="bg-surface-container-low p-8 rounded-xl flex flex-col justify-between overflow-hidden relative group h-[400px] gsap-hover-card border border-transparent hover:border-outline-variant/20">
         <div class="relative z-10">
-          <span class="material-symbols-outlined text-4xl mb-2 text-primary transition-transform duration-500 ease-out group-hover:rotate-12 group-hover:scale-110">handyman</span>
-          <h3 class="font-headline-lg text-headline-lg mb-2">No-Code Setup</h3>
+          <span class="material-symbols-outlined text-4xl mb-2 text-primary">handyman</span>
+          <h3 class="font-headline-lg text-headline-lg mb-2">Zero-Code Pipeline</h3>
         </div>  
-        <div class="absolute bottom-0 left-0 right-0 h-[55%] md:h-[65%] flex translate-y-8 translate-x-8 transition-transform duration-700 ease-out group-hover:translate-y-4 group-hover:translate-x-4">
+        <div class="absolute bottom-0 left-0 right-0 h-[55%] md:h-[65%] flex translate-y-8 translate-x-8 transition-transform group-hover:translate-y-4">
           <img alt="Dashboard interface"  
-               class="w-[120%] max-w-none h-full object-left object-cover rounded-tl-xl shadow-2xl transition-shadow duration-500 group-hover:shadow-[0_32px_64px_rgba(0,0,0,0.15)]"  
+               class="w-[120%] max-w-none h-full object-left object-cover rounded-tl-xl shadow-2xl"  
                src="assets/frame.png">
         </div>
       </div>
-      <div class="bg-surface-container-low p-8 rounded-xl flex flex-col justify-between overflow-hidden relative group h-[400px] gsap-hover-card border border-transparent hover:border-outline-variant/30">
+      <div class="bg-surface-container-low p-8 rounded-xl flex flex-col justify-between overflow-hidden relative group h-[400px] gsap-hover-card border border-transparent hover:border-outline-variant/20">
         <div class="relative z-10">
-          <span class="material-symbols-outlined text-4xl mb-2 text-primary transition-transform duration-500 ease-out group-hover:scale-115">devices</span>
-          <h3 class="font-headline-lg text-headline-lg mb-2">Web-Based Launch</h3>
+          <span class="material-symbols-outlined text-4xl mb-2 text-primary">devices</span>
+          <h3 class="font-headline-lg text-headline-lg mb-2">High-Performance Deployment</h3>
   </div>    
-<div class="absolute bottom-0 left-0 right-0 h-[50%] md:h-[70%] flex justify-center translate-y-4 md:translate-y-8 transition-transform duration-700 ease-out group-hover:scale-[1.04] group-hover:translate-y-2">
+<div class="absolute bottom-0 left-0 right-0 h-[50%] md:h-[70%] flex justify-center translate-y-4 md:translate-y-8 transition-transform group-hover:scale-105">
   <img alt="AR Mobile Preview" 
-       class="w-64 md:w-80 h-full object-center object-cover rounded-3xl shadow-xl border-4 border-white/10 transition-shadow duration-500 group-hover:shadow-[0_32px_64px_rgba(0,0,0,0.12)]" 
+       class="w-64 md:w-80 h-full object-center object-cover rounded-3xl shadow-xl border-4 border-white/10" 
        src="assets/Demo%20Photo.jpeg">
 </div>
       </div>
@@ -228,8 +218,8 @@
 <section class="py-16 px-gutter bg-white">
 <div class="max-w-container-max mx-auto text-center">
 <h2 class="font-headline-lg text-headline-lg mb-8 max-w-4xl mx-auto"><span class="" style="font-family: Geist, -apple-system, BlinkMacSystemFont, sans-serif; letter-spacing: -0.01em;">Behaviour Changes. Marketing Evolves.</span></h2>
-<div class="max-w-5xl mx-auto overflow-hidden rounded-xl shadow-sm hover:shadow-xl transition-all duration-500">
-<img alt="Evolution of Advertising from 1980s to Future Spatial AR" class="w-full h-auto object-contain transition-transform duration-1000 ease-out hover:scale-[1.015]" src="assets/marketing%20evolution.png">
+<div class="max-w-5xl mx-auto overflow-hidden rounded-xl shadow-sm hover:shadow-md transition-shadow duration-300">
+<img alt="Evolution of Advertising from 1980s to Future Spatial AR" class="w-full h-auto rounded-xl object-contain" src="assets/marketing%20evolution.png">
 </div>
 </div>
 </section>
@@ -241,26 +231,26 @@
 </div>
 </div>
 <div class="max-w-container-max mx-auto grid grid-cols-1 md:grid-cols-3 gap-8">
-<div class="flex flex-col gap-3 group p-4 rounded-xl hover:bg-surface-container-low/40 transition-colors duration-300">
-<div class="w-10 h-10 flex items-center justify-center bg-surface-container-low rounded-lg transition-all duration-300 group-hover:bg-[#0071E3] group-hover:text-white">
-<span class="material-symbols-outlined text-primary text-xl transition-colors duration-300 group-hover:text-white" style="font-variation-settings: 'FILL' 1;">lightbulb</span>
+<div class="flex flex-col gap-3 group">
+<div class="w-10 h-10 flex items-center justify-center bg-surface-container-low rounded-lg transition-colors duration-300 group-hover:bg-[#0071E3]/10">
+<span class="material-symbols-outlined text-primary text-xl transition-colors duration-300 group-hover:text-[#0071E3]" style="font-variation-settings: 'FILL' 1;">lightbulb</span>
 </div>
 <h4 class="font-headline-md text-headline-md">Instant Innovation</h4>
-<p class="font-body-md text-body-md text-secondary">Add 'AR Experiences' to your service list overnight and outshine the competition.</p>
+<p class="font-body-md text-body-md text-secondary">Add breathtaking interactive layouts to your pitch decks and capture higher retainer fees.</p>
 </div>
-<div class="flex flex-col gap-3 group p-4 rounded-xl hover:bg-surface-container-low/40 transition-colors duration-300">
-<div class="w-10 h-10 flex items-center justify-center bg-surface-container-low rounded-lg transition-all duration-300 group-hover:bg-[#0071E3] group-hover:text-white">
-<span class="material-symbols-outlined text-primary text-xl transition-colors duration-300 group-hover:text-white" style="font-variation-settings: 'FILL' 1;">bolt</span>
+<div class="flex flex-col gap-3 group">
+<div class="w-10 h-10 flex items-center justify-center bg-surface-container-low rounded-lg transition-colors duration-300 group-hover:bg-[#0071E3]/10">
+<span class="material-symbols-outlined text-primary text-xl transition-colors duration-300 group-hover:text-[#0071E3]" style="font-variation-settings: 'FILL' 1;">bolt</span>
 </div>
 <h4 class="font-headline-md text-headline-md">Rapid Deployment</h4>
-<p class="font-body-md text-body-md text-secondary">Anyone on your team can create in minutes. No experienced developers needed.</p>
+<p class="font-body-md text-body-md text-secondary">Launch responsive spatial tracking points in minutes with solid hardware acceleration.</p>
 </div>
-<div class="flex flex-col gap-3 group p-4 rounded-xl hover:bg-surface-container-low/40 transition-colors duration-300">
-<div class="w-10 h-10 flex items-center justify-center bg-surface-container-low rounded-lg transition-all duration-300 group-hover:bg-[#0071E3] group-hover:text-white">
-<span class="material-symbols-outlined text-primary text-xl transition-colors duration-300 group-hover:text-white" style="font-variation-settings: 'FILL' 1;">bar_chart</span>
+<div class="flex flex-col gap-3 group">
+<div class="w-10 h-10 flex items-center justify-center bg-surface-container-low rounded-lg transition-colors duration-300 group-hover:bg-[#0071E3]/10">
+<span class="material-symbols-outlined text-primary text-xl transition-colors duration-300 group-hover:text-[#0071E3]" style="font-variation-settings: 'FILL' 1;">bar_chart</span>
 </div>
 <h4 class="font-headline-md text-headline-md">Scalable Margins</h4>
-<p class="font-body-md text-body-md text-secondary">Minimize internal effort while maximizing your project's billable rates.</p>
+<p class="font-body-md text-body-md text-secondary">Deliver premium custom visual experiences without hiring separate development teams.</p>
 </div>
 </div>
 </section>
@@ -270,30 +260,30 @@
 <h2 class="font-display-lg text-display-lg">Who Are Your Target Brands</h2>
 </div>
 <div class="max-w-container-max mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
-<div class="group relative overflow-hidden rounded-xl bg-white aspect-[3/4] shadow-sm gsap-hover-card">
-<img alt="A stunning, high-contrast photograph of a minimalist designer chair positioned in a bright, white-walled gallery space." class="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-110" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBPVzC817V5X-9KqjptnehxZ2Y0kxfeu02VksL267uFtzc_yQ2IVqg1lxneBnQf6BIeTEkH8PKQg0RHsOkGgBFItkCzsQWh0ca-iBz9qY02HFfeMgRw6eciLzBNZtqjVS_iashYQYK8nUhgPUnlnauu9o5wnjUQoGGzTpHNWW4azOpivb-WSwcUXvF1_amCD2d_bLj8Nh0MvONLtHIosmn6Ab96Dss0tSzNv33YJUEYM4cXsybxadiAN72x32fMlxK01znQtbLqgbZE">
-<div class="absolute inset-0 bg-gradient-to-t from-primary/95 via-primary/40 to-transparent p-6 flex flex-col justify-end">
+<div class="group relative overflow-hidden rounded-xl bg-white aspect-[3/4] shadow-sm">
+<img alt="A stunning, high-contrast photograph of a minimalist designer chair positioned in a bright, white-walled gallery space." class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBPVzC817V5X-9KqjptnehxZ2Y0kxfeu02VksL267uFtzc_yQ2IVqg1lxneBnQf6BIeTEkH8PKQg0RHsOkGgBFItkCzsQWh0ca-iBz9qY02HFfeMgRw6eciLzBNZtqjVS_iashYQYK8nUhgPUnlnauu9o5wnjUQoGGzTpHNWW4azOpivb-WSwcUXvF1_amCD2d_bLj8Nh0MvONLtHIosmn6Ab96Dss0tSzNv33YJUEYM4cXsybxadiAN72x32fMlxK01znQtbLqgbZE">
+<div class="absolute inset-0 bg-gradient-to-t from-primary/80 to-transparent p-6 flex flex-col justify-end">
 <h4 class="font-headline-md text-white mb-1">Luxury Furnitures</h4>
 <p class="text-white/80 font-body-md text-sm">Visualize furniture with 1:1 accuracy.</p>
 </div>
 </div>
-<div class="group relative overflow-hidden rounded-xl bg-white aspect-[3/4] shadow-sm gsap-hover-card">
-<img alt="A macro shot of a sleek, high-end audio speaker featuring brushed metal textures and minimal design." class="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-110" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDb_Sarz-diqyROjMh2JxnbdpNxkQYCGqAv1o3T5USZ0ztdTiqBMOK1CTU396cn3TshLY79GLbDDRCXF_W8nNlV9WBSKK8bQ1bhm18zLqg2Zg55oUaeGp53kMGUJtMIIcEbT73eB0GQdi7ku5HHnZ3vw9qtP-IpGCD-Gw-X0-lYtyrDo1CKOeA1qyAbyw70DlSkmkkKHv3pmpn7eLa502R1GJJNz8V_cOdk1sNk7sTd4OtCwM36HCjymTxsvkyyqjmCwT-63EgrPg5y">
-<div class="absolute inset-0 bg-gradient-to-t from-primary/95 via-primary/40 to-transparent p-6 flex flex-col justify-end">
+<div class="group relative overflow-hidden rounded-xl bg-white aspect-[3/4] shadow-sm">
+<img alt="A macro shot of a sleek, high-end audio speaker featuring brushed metal textures and minimal design." class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDb_Sarz-diqyROjMh2JxnbdpNxkQYCGqAv1o3T5USZ0ztdTiqBMOK1CTU396cn3TshLY79GLbDDRCXF_W8nNlV9WBSKK8bQ1bhm18zLqg2Zg55oUaeGp53kMGUJtMIIcEbT73eB0GQdi7ku5HHnZ3vw9qtP-IpGCD-Gw-X0-lYtyrDo1CKOeA1qyAbyw70DlSkmkkKHv3pmpn7eLa502R1GJJNz8V_cOdk1sNk7sTd4OtCwM36HCjymTxsvkyyqjmCwT-63EgrPg5y">
+<div class="absolute inset-0 bg-gradient-to-t from-primary/80 to-transparent p-6 flex flex-col justify-end">
 <h4 class="font-headline-md text-white mb-1">Premium Gadgets</h4>
 <p class="text-white/80 font-body-md text-sm">Showcase tech in their environment.</p>
 </div>
 </div>
-<div class="group relative overflow-hidden rounded-xl bg-white aspect-[3/4] shadow-sm gsap-hover-card">
-<img alt="A professional-grade espresso machine with polished chrome surfaces." class="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-110" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAYcvhyLr_n3iz8dxL4KihlHzDdpJe6l9R8gmAtbsIPUda79jcU5Gx698MT-bXQg5dhQNypyPWVXacYv2j_ipc9uaa7YFL-F0_MMd6iPlWuzFRbMM9IW_vXY64MtJZUk6khfDZnYquth5q1qleMhHDF0pi91xs0LkGKnWVdqu9Vw7arnxxZuBhm-nG5Leh2T6K_xM98VbjqC1RhbZLyUQq5DVQD_lIYHZlsnWCvEg9csaVjuUR_rF795FDnWCQSAnsfGRrQ8kdVBu3j">
-<div class="absolute inset-0 bg-gradient-to-t from-primary/95 via-primary/40 to-transparent p-6 flex flex-col justify-end">
+<div class="group relative overflow-hidden rounded-xl bg-white aspect-[3/4] shadow-sm">
+<img alt="A professional-grade espresso machine with polished chrome surfaces." class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAYcvhyLr_n3iz8dxL4KihlHzDdpJe6l9R8gmAtbsIPUda79jcU5Gx698MT-bXQg5dhQNypyPWVXacYv2j_ipc9uaa7YFL-F0_MMd6iPlWuzFRbMM9IW_vXY64MtJZUk6khfDZnYquth5q1qleMhHDF0pi91xs0LkGKnWVdqu9Vw7arnxxZuBhm-nG5Leh2T6K_xM98VbjqC1RhbZLyUQq5DVQD_lIYHZlsnWCvEg9csaVjuUR_rF795FDnWCQSAnsfGRrQ8kdVBu3j">
+<div class="absolute inset-0 bg-gradient-to-t from-primary/80 to-transparent p-6 flex flex-col justify-end">
 <h4 class="font-headline-md text-white mb-1">Commercial Appliances</h4>
 <p class="text-white/80 font-body-md text-sm">Visualize heavy tools instantly.</p>
 </div>
 </div>
-<div class="group relative overflow-hidden rounded-xl bg-white aspect-[3/4] shadow-sm gsap-hover-card">
-<img alt="Modern medical diagnostic equipment in a sterile, minimalist hospital room setting." class="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-110" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCJgfFDdOmn6wuTIRk4Wc5j-hCyujhgw0sm5qplzAuBEfNWmeq2OcPRxFpB-8SG9J1WYiaWyJHr5Mf5wO9ozl6H9JiT8NRjLf7k3Mo5tmlzhO2yQ7GlvpyE9Pgal91XvLTEwfyI3i4V1npTEMv6yaCk3MddOG_wEccM6FkpiK3Vn5AIA8I5agtYw0nYCZcLA82xRIN9YTNTHdDfyVTiwJuSeKgpXA2dCA5BSAgrAbKLRQwf9VyEPZ8WM2-wVGEIqhsb7v3G0XTE96nK">
-<div class="absolute inset-0 bg-gradient-to-t from-primary/95 via-primary/40 to-transparent p-6 flex flex-col justify-end">
+<div class="group relative overflow-hidden rounded-xl bg-white aspect-[3/4] shadow-sm">
+<img alt="Modern medical diagnostic equipment in a sterile, minimalist hospital room setting." class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCJgfFDdOmn6wuTIRk4Wc5j-hCyujhgw0sm5qplzAuBEfNWmeq2OcPRxFpB-8SG9J1WYiaWyJHr5Mf5wO9ozl6H9JiT8NRjLf7k3Mo5tmlzhO2yQ7GlvpyE9Pgal91XvLTEwfyI3i4V1npTEMv6yaCk3MddOG_wEccM6FkpiK3Vn5AIA8I5agtYw0nYCZcLA82xRIN9YTNTHdDfyVTiwJuSeKgpXA2dCA5BSAgrAbKLRQwf9VyEPZ8WM2-wVGEIqhsb7v3G0XTE96nK">
+<div class="absolute inset-0 bg-gradient-to-t from-primary/80 to-transparent p-6 flex flex-col justify-end">
 <h4 class="font-headline-md text-white mb-1">Industrial & Med Tech</h4>
 <p class="text-white/80 font-body-md text-sm">Demonstrate bulky equipment.</p>
 </div>
@@ -307,18 +297,19 @@
       <h2 class="font-display-lg text-display-lg">Our Portfolio</h2>
     </div>
     <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
-      <div class="group relative overflow-hidden rounded-xl bg-surface-container-low aspect-[3/4] shadow-sm gsap-hover-card border border-transparent hover:border-outline-variant/30">
-        <img alt="Portfolio showcase 1" class="w-full h-full object-cover transition-transform duration-1000 ease-out group-hover:scale-105" src="assets/portfolio1.jpg">
+      <div class="group relative overflow-hidden rounded-xl bg-surface-container-low aspect-[3/4] shadow-sm gsap-hover-card border border-transparent hover:border-outline-variant/20">
+        <img alt="Portfolio showcase 1" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" src="assets/portfolio1.jpg">
       </div>
-      <div class="group relative overflow-hidden rounded-xl bg-surface-container-low aspect-[3/4] shadow-sm gsap-hover-card border border-transparent hover:border-outline-variant/30">
-        <img alt="Portfolio showcase 2" class="w-full h-full object-cover transition-transform duration-1000 ease-out group-hover:scale-105" src="assets/portfolio2.jpg">
+      <div class="group relative overflow-hidden rounded-xl bg-surface-container-low aspect-[3/4] shadow-sm gsap-hover-card border border-transparent hover:border-outline-variant/20">
+        <img alt="Portfolio showcase 2" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" src="assets/portfolio2.jpg">
       </div>
-      <div class="group relative overflow-hidden rounded-xl bg-surface-container-low aspect-[3/4] shadow-sm gsap-hover-card border border-transparent hover:border-outline-variant/30">
-        <img alt="Portfolio showcase 3" class="w-full h-full object-cover transition-transform duration-1000 ease-out group-hover:scale-105" src="assets/portfolio3.jpg">
+      <div class="group relative overflow-hidden rounded-xl bg-surface-container-low aspect-[3/4] shadow-sm gsap-hover-card border border-transparent hover:border-outline-variant/20">
+        <img alt="Portfolio showcase 3" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" src="assets/portfolio3.jpg">
       </div>
     </div>
   </div>
 </section>
+
 <section class="py-16 px-gutter bg-surface-bright">
 <div class="max-w-container-max mx-auto text-center mb-12">
 <span class="inline-block mb-2 font-label-md text-label-md text-secondary tracking-widest uppercase">4 STEPS. ZERO FRICTION.</span>
@@ -326,37 +317,37 @@
 </div>
 <div class="max-w-container-max mx-auto grid grid-cols-1 md:grid-cols-4 gap-8">
 <div class="relative group">
-<div class="mb-4 inline-flex items-center justify-center w-10 h-10 rounded-full border border-outline-variant text-primary font-bold group-hover:bg-primary group-hover:text-white group-hover:border-primary transition-all duration-300 group-hover:scale-110">1</div>
-<h4 class="font-headline-md text-headline-md mb-2">Initiate</h4>
-<p class="font-body-md text-body-md text-secondary">Create your project in seconds.</p>
+<div class="mb-4 inline-flex items-center justify-center w-10 h-10 rounded-full border border-outline-variant text-primary font-bold group-hover:bg-primary group-hover:text-white group-hover:border-primary transition-all duration-300">1</div>
+<h4 class="font-headline-md text-headline-md mb-2">Map Scenes</h4>
+<p class="font-body-md text-body-md text-secondary">Establish your spatial canvas coordinates in seconds.</p>
 </div>
 <div class="relative group">
-<div class="mb-4 inline-flex items-center justify-center w-10 h-10 rounded-full border border-outline-variant text-primary font-bold group-hover:bg-primary group-hover:text-white group-hover:border-primary transition-all duration-300 group-hover:scale-110">2</div>
-<h4 class="font-headline-md text-headline-md mb-2">Import</h4>
-<p class="font-body-md text-body-md text-secondary">Drop in your 3D assets.</p>
+<div class="mb-4 inline-flex items-center justify-center w-10 h-10 rounded-full border border-outline-variant text-primary font-bold group-hover:bg-primary group-hover:text-white group-hover:border-primary transition-all duration-300">2</div>
+<h4 class="font-headline-md text-headline-md mb-2">Inject Assets</h4>
+<p class="font-body-md text-body-md text-secondary">Drop in 3D product configurations directly into the layout.</p>
 </div>
 <div class="relative group">
-<div class="mb-4 inline-flex items-center justify-center w-10 h-10 rounded-full border border-outline-variant text-primary font-bold group-hover:bg-primary group-hover:text-white group-hover:border-primary transition-all duration-300 group-hover:scale-110">3</div>
-<h4 class="font-headline-md text-headline-md mb-2">Generate</h4>
-<p class="font-body-md text-body-md text-secondary">Instantly generate unique QR link.</p>
+<div class="mb-4 inline-flex items-center justify-center w-10 h-10 rounded-full border border-outline-variant text-primary font-bold group-hover:bg-primary group-hover:text-white group-hover:border-primary transition-all duration-300">3</div>
+<h4 class="font-headline-md text-headline-md mb-2">Sync Triggers</h4>
+<p class="font-body-md text-body-md text-secondary">Generate responsive tracking paths and interactive anchor states.</p>
 </div>
 <div class="relative group">
-<div class="mb-4 inline-flex items-center justify-center w-10 h-10 rounded-full border border-outline-variant text-primary font-bold group-hover:bg-primary group-hover:text-white group-hover:border-primary transition-all duration-300 group-hover:scale-110">4</div>
-<h4 class="font-headline-md text-headline-md mb-2">Deploy</h4>
-<p class="font-body-md text-body-md text-secondary">Embed into your campaign & go live.</p>
+<div class="mb-4 inline-flex items-center justify-center w-10 h-10 rounded-full border border-outline-variant text-primary font-bold group-hover:bg-primary group-hover:text-white group-hover:border-primary transition-all duration-300">4</div>
+<h4 class="font-headline-md text-headline-md mb-2">Stream Live</h4>
+<p class="font-body-md text-body-md text-secondary">Embed web experiences instantly across any digital campaign viewport.</p>
 </div>
 </div>
 </section>
 
-<section class="py-24 px-gutter bg-primary text-center">
+<section class="py-16 px-gutter bg-primary text-center">
 <div class="max-w-4xl mx-auto">
-<h2 class="font-display-lg text-display-lg text-on-primary leading-tight tracking-tight">No Upfront Investment<br>Pay Only When You Need</h2>
+<h2 class="font-display-lg text-display-lg text-on-primary leading-tight">No Upfront Investment<br>Pay Only When You Need</h2>
 </div>
 </section>
 
 <section class="py-16 px-gutter bg-white">
 <div class="max-w-container-max mx-auto">
-<div class="grid grid-cols-1 md:grid-cols-2 gap-px bg-outline-variant/30 overflow-hidden rounded-2xl border border-outline-variant/30 shadow-sm transition-all duration-500 hover:shadow-xl hover:border-outline-variant/50">
+<div class="grid grid-cols-1 md:grid-cols-2 gap-px bg-outline-variant/30 overflow-hidden rounded-2xl border border-outline-variant/30 shadow-sm">
 <div class="bg-surface-container-low p-10 flex flex-col justify-center">
 <span class="inline-block mb-4 font-label-md text-label-md text-secondary/60 tracking-wider uppercase">TRADITIONAL APPROACH</span>
 <h3 class="font-headline-lg text-headline-lg text-secondary/70 leading-tight">
@@ -387,48 +378,48 @@
           target="hidden_iframe" 
           onsubmit="formSubmitted=true;" 
           id="native-google-form"
-          class="space-y-6 bg-white p-8 md:p-10 rounded-2xl border border-outline-variant/20 shadow-md transition-all duration-300">
+          class="space-y-6 bg-white p-8 md:p-10 rounded-2xl border border-outline-variant/20 shadow-sm transition-all">
       
       <div class="flex flex-col gap-2 relative group/field">
         <label class="font-body-md font-semibold text-primary transition-colors duration-300 group-focus-within/field:text-[#0071E3]">Your Name</label>
         <input type="text" name="entry.1248389741" required placeholder="Sharon Lee"
-               class="w-full px-4 py-3 rounded-xl bg-surface-container-low border border-outline-variant/20 focus:outline-none focus:border-[#0071E3] focus:bg-white text-body-md transition-all duration-300 focus:shadow-[0_4px_12px_rgba(0,113,227,0.05)]">
+               class="w-full px-4 py-3 rounded-xl bg-surface-container-low border border-outline-variant/20 focus:outline-none focus:border-[#0071E3] focus:bg-white text-body-md transition-all">
       </div>
 
       <div class="flex flex-col gap-2 relative group/field">
         <label class="font-body-md font-semibold text-primary transition-colors duration-300 group-focus-within/field:text-[#0071E3]">Your Company / Brand Name</label>
         <input type="text" name="entry.427276670" required placeholder="MarkeThink Agency"
-               class="w-full px-4 py-3 rounded-xl bg-surface-container-low border border-outline-variant/20 focus:outline-none focus:border-[#0071E3] focus:bg-white text-body-md transition-all duration-300 focus:shadow-[0_4px_12px_rgba(0,113,227,0.05)]">
+               class="w-full px-4 py-3 rounded-xl bg-surface-container-low border border-outline-variant/20 focus:outline-none focus:border-[#0071E3] focus:bg-white text-body-md transition-all">
       </div>
 
       <div class="flex flex-col gap-2 relative group/field">
         <label class="font-body-md font-semibold text-primary transition-colors duration-300 group-focus-within/field:text-[#0071E3]">Your Business Email</label>
         <input type="email" name="entry.1426822400" required placeholder="sharon@agency.com"
-               class="w-full px-4 py-3 rounded-xl bg-surface-container-low border border-outline-variant/20 focus:outline-none focus:border-[#0071E3] focus:bg-white text-body-md transition-all duration-300 focus:shadow-[0_4px_12px_rgba(0,113,227,0.05)]">
+               class="w-full px-4 py-3 rounded-xl bg-surface-container-low border border-outline-variant/20 focus:outline-none focus:border-[#0071E3] focus:bg-white text-body-md transition-all">
       </div>
 
       <div class="flex flex-col gap-2 relative group/field">
         <label class="font-body-md font-semibold text-primary transition-colors duration-300 group-focus-within/field:text-[#0071E3]">What is your main use case for Web AR technology?</label>
         <input type="text" name="entry.523214655" required placeholder="e.g. Marketing Campaign, E-commerce, General Inquiry..."
-               class="w-full px-4 py-3 rounded-xl bg-surface-container-low border border-outline-variant/20 focus:outline-none focus:border-[#0071E3] focus:bg-white text-body-md transition-all duration-300 focus:shadow-[0_4px_12px_rgba(0,113,227,0.05)]">
+               class="w-full px-4 py-3 rounded-xl bg-surface-container-low border border-outline-variant/20 focus:outline-none focus:border-[#0071E3] focus:bg-white text-body-md transition-all">
       </div>
 
       <div class="flex flex-col gap-2 relative group/field">
         <label class="font-body-md font-semibold text-primary transition-colors duration-300 group-focus-within/field:text-[#0071E3]">Briefly share your AR project concept</label>
         <textarea name="entry.1627121911" rows="3" required placeholder="Tell us about the brands or experiences you want to showcase..."
-                  class="w-full px-4 py-3 rounded-xl bg-surface-container-low border border-outline-variant/20 focus:outline-none focus:border-[#0071E3] focus:bg-white text-body-md transition-all duration-300 focus:shadow-[0_4px_12px_rgba(0,113,227,0.05)] resize-none"></textarea>
+                  class="w-full px-4 py-3 rounded-xl bg-surface-container-low border border-outline-variant/20 focus:outline-none focus:border-[#0071E3] focus:bg-white text-body-md transition-all resize-none"></textarea>
       </div>
 
       <div class="pt-2">
         <button type="submit" id="form-submit-btn"
-                class="w-full py-4 bg-[#0071E3] text-white font-headline-md rounded-xl transition-all duration-300 hover:bg-[#0077ED] active:scale-[0.99] shadow-md hover:shadow-[0_8px_24px_rgba(0,113,227,0.2)]">
+                class="w-full py-4 bg-[#0071E3] text-white font-headline-md rounded-xl transition-all hover:bg-[#0077ED] active:scale-[0.99] shadow-sm">
           Submit & Start Collaborating
         </button>
       </div>
     </form>
 
-    <div id="success-feedback" class="hidden text-center bg-white p-10 rounded-2xl border border-outline-variant/20 shadow-md space-y-3 transition-all duration-500">
-      <span class="material-symbols-outlined text-5xl text-emerald-500" style="animation: pulseTrack 2s infinite ease-in-out;">check_circle</span>
+    <div id="success-feedback" class="hidden text-center bg-white p-10 rounded-2xl border border-outline-variant/20 shadow-sm space-y-3">
+      <span class="material-symbols-outlined text-5xl text-emerald-500">check_circle</span>
       <h3 class="font-headline-lg text-primary">We’ve Received Your Message</h3>
       <p class="font-body-md text-secondary max-w-md mx-auto">Thank you for connecting with us! Ken, Founder of DasAR, will reach out to you via email shortly.</p>
     </div>
